@@ -31,9 +31,9 @@ export default class Movie extends Component {
                             style={{height: 40,borderWidth:0,elevation:2}}
                             tabStyle={{height: 39}}
                             underlineHeight={4}/>}>
-                    <MovieItem type={'in_thread'} tabLabel='正在热映'></MovieItem>
-                    <MovieItem type={'top_250'} tabLabel='TOP250'></MovieItem>
-                    <MovieItem type={'coming'} tabLabel='即将上映'></MovieItem>
+                    <MovieItem type={'in_thread'} tabLabel='正在热映' navigation={this.props.navigation}></MovieItem>
+                    <MovieItem type={'top_250'} tabLabel='TOP250' navigation={this.props.navigation}></MovieItem>
+                    <MovieItem type={'coming'} tabLabel='即将上映' navigation={this.props.navigation}></MovieItem>
                 </ScrollableTabView>
             </View>
         )

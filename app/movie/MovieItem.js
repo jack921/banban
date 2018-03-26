@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { fetchinThreadMovie,fetchTop250,comingMovie } from '../utils/HttpUtils';
 import RenderItem from '../layout/RenderItem';
+import MovieDetails from './MovieDetails';
 
 var fetchData=null;
 
@@ -62,8 +63,11 @@ export default class MovieItem extends Component {
     }
 
     _renderItem =({item,index})=>{
+        let navigation=this.props.navigation;
         return(
-            <RenderItem item={item} index={index} type={this.props.type}></RenderItem>
+            <RenderItem item={item} index={index} type={this.props.type} handler={()=>{
+                navigation('MovieDetails',{movie:item});
+            }}></RenderItem>
         );
     }
 
@@ -86,7 +90,6 @@ export default class MovieItem extends Component {
         fetchinThreadMovie((json) => {
             let temp=this.state.dataSource.concat(json.subjects);
             console.log(temp);
-            // ToastAndroid.show('loreMore',ToastAndroid.SHORT);
             this.setState({dataSource: temp,footerState:false});
         });
     }
@@ -120,7 +123,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems:'center',
     },
-
-
 });
 
