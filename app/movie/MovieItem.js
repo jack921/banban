@@ -42,7 +42,7 @@ export default class MovieItem extends Component {
                 <FlatList
                     keyExtractor={(item,index)=>item.key = index}
                     ListFooterComponent={this._onRenderFooter}
-                    renderItem={this._renderItem}
+                    renderItem={this._renderItem.bind(this)}
                     onEndReached={this._loreMore}
                     data={this.state.dataSource}
                     onEndReachedThreshold={1}
@@ -63,10 +63,9 @@ export default class MovieItem extends Component {
     }
 
     _renderItem =({item,index})=>{
-        let navigation=this.props.navigation;
         return(
             <RenderItem item={item} index={index} type={this.props.type} handler={()=>{
-                navigation('MovieDetails',{movie:item});
+               this.props.navigation.navigate('MovieDetails',{movie:item});
             }}></RenderItem>
         );
     }

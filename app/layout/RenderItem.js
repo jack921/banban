@@ -15,7 +15,7 @@ export default class RenderItem extends Component {
     render() {
         if(this.props.type=='coming'){
             return (
-                <TouchableOpacity onPress={this.props.handler} style={styles.touchableOpacity} activeOpacity={0.8}>
+                <TouchableOpacity onPress={this.props.handler(this.props.navigation)} style={styles.touchableOpacity} activeOpacity={0.8}>
                     <View style={styles.container}>
                         <Image source={{uri: this.props.item.subject.images.medium}}
                                style={styles.renderImage}/>

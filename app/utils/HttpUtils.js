@@ -12,13 +12,15 @@ import {
 
 export function fetchGetData(url,callBack){
     let base=API_ROOT+url;
+    console.log(base);
     fetch(encodeURI(base))
         .then((response)=>response.json())
         .then((responseJson)=>{
-            callBack(responseJson);
+        console.log("responseJson:"+responseJson);
+        callBack(responseJson);
     }).catch((error)=>{
-            console.log("error:"+error);
-        });
+        console.log("error:"+error);
+    });
 }
 
 export function fetchinThreadMovie(callBack){

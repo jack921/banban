@@ -21,7 +21,7 @@ class HomePage extends Component {
     }
 
     render() {
-        const {initNavigate, navigate} = this.props;
+        const {initNavigate} = this.props;
         initNavigate(this.props.navigation);
         return (
             <View style={styles.container}>
@@ -34,7 +34,7 @@ class HomePage extends Component {
                         renderIcon={() => <Image style={styles.icon} source={require("./image/ic_movie_uncheck.png")} />}
                         renderSelectedIcon={() => <Image style={styles.icon} source={require("./image/ic_movie.png")} />}
                         onPress={() => this.setState({selectedTab: 'movie'})}>
-                        <Movie navigation={navigate}/>
+                        <Movie navigation={this.props.navigation}/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'music'}
@@ -44,7 +44,7 @@ class HomePage extends Component {
                         renderIcon={() => <Image style={styles.icon} source={require("./image/ic_music_uncheck.png")} />}
                         renderSelectedIcon={() => <Image style={styles.icon} source={require("./image/ic_music.png")} />}
                         onPress={() => this.setState({selectedTab: 'music'})}>
-                        <Music navigation={navigate}/>
+                        <Music navigation={this.props.navigation}/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'book'}
@@ -54,7 +54,7 @@ class HomePage extends Component {
                         renderIcon={() => <Image style={styles.icon} source={require("./image/ic_book_uncheck.png")} />}
                         renderSelectedIcon={() => <Image style={styles.icon} source={require("./image/ic_book.png")} />}
                         onPress={() => this.setState({selectedTab: 'book'})}>
-                        <Book navigation={navigate}/>
+                        <Book navigation={this.props.navigation}/>
                     </TabNavigator.Item>
                 </TabNavigator>
             </View>
