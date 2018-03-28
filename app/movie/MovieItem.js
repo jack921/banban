@@ -11,6 +11,7 @@ import {
 import { fetchinThreadMovie,fetchTop250,comingMovie } from '../utils/HttpUtils';
 import RenderItem from '../layout/RenderItem';
 import MovieDetails from './MovieDetails';
+import RenderFooter from '../layout/RenderFooter';
 
 var fetchData=null;
 
@@ -96,10 +97,7 @@ export default class MovieItem extends Component {
     _onRenderFooter=()=>{
         if(this.state.footerState){
             return(
-                <View style={styles.container_footer}>
-                    <ActivityIndicator style={{marginTop:5}}/>
-                    <Text style={{marginTop:10,marginBottom:5,color:'#7B68EE'}}>正在加载更多数据...</Text>
-                </View>
+                <RenderFooter></RenderFooter>
             )
         }else{
             return(

@@ -18,7 +18,7 @@ export default class Movie extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.container_bar}>
-                        <Text style={styles.container_title}>豆瓣</Text>
+                    <Text style={styles.container_title}>豆瓣</Text>
                 </View>
                 <ScrollableTabView
                     style={styles.container}

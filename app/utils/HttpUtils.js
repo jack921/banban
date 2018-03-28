@@ -35,4 +35,13 @@ export function comingMovie(callBack) {
     fetchGetData(API_US_BOX,callBack);
 }
 
+export function fetchMovieReview(movieId,start,callBack){
+    fetchGetData(API_MOVIE_INFO+movieId+"/reviews?apikey="+API_KEY+"&start="+start+"&count=20",callBack);
+}
+
+export function fetchMovieComment(movieId,start,callBack) {
+    fetchGetData(API_MOVIE_INFO+movieId+"/comments?apikey="+API_KEY+"&start="+start+"&count=20",callBack);
+}
+
+
 
